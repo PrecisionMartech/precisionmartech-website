@@ -333,3 +333,14 @@ body::before {
     ) !important;
   }
 }
+
+/* On mobile, drop the bg image - it doesn't translate to portrait */
+@media (max-width: 768px) {
+  body {
+    background-image: none;
+    background-color: var(--base);
+  }
+  body::before {
+    display: none;
+  }
+}
