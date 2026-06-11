@@ -287,3 +287,37 @@ body::before {
   .nav-inner { padding:0 1.5rem; }
   .cf-row { grid-template-columns:1fr; }
 }
+
+@media (max-width: 768px) {
+  .hero { padding: 6rem 1.25rem 3rem; min-height: auto; }
+  .hero-h1 { font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  .hero-tag { font-size: 0.65rem; }
+  .hero-p { font-size: 0.95rem; }
+  .hero-actions { flex-direction: column; gap: 0.75rem; }
+  .hero-actions a { text-align: center; }
+
+  .services { padding: 4rem 0; }
+  .services-inner { padding: 0 1.25rem; }
+  .sec-title { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+  .si-name { font-size: 1.5rem; }
+  .si-features { gap: 0.4rem; }
+
+  .contact { padding: 4rem 0; }
+  .contact-inner { padding: 0 1.25rem; gap: 2.5rem; }
+  .contact-form { padding: 1.5rem; }
+
+  .nav-inner { padding: 0 1.25rem; }
+  .nav-wordmark { font-size: 0.9rem; }
+  .nav-cta { font-size: 0.75rem; padding: 0.5rem 1rem; }
+
+  .footer-inner { flex-direction: column; gap: 0.5rem; text-align: center; padding: 0 1.25rem; }
+  .footer-wordmark { font-size: 0.85rem; }
+
+  .cf-group input, .cf-group select, .cf-group textarea { font-size: 16px; } /* prevents iOS zoom */
+}
+
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 2.2rem; }
+  .sec-title { font-size: 1.8rem; }
+  .si-tag { font-size: 0.7rem; padding: 0.25rem 0.5rem; }
+}
