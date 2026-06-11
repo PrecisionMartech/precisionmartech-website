@@ -12,8 +12,8 @@
   --surface: rgba(4, 10, 20, 0.72);
   --surface-2: rgba(6, 14, 28, 0.85);
   --text-primary: #e2eaf8;
-  --text-secondary: #5c7799;
-  --text-muted: #2e4060;
+  --text-secondary: #a8bdd4;
+  --text-muted: #7a96b4;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
