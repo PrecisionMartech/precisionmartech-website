@@ -98,6 +98,40 @@
   font-size: 0.85rem; color: var(--pr-body); margin-top: 0.75rem;
 }
 
+/* ── Service lines (top of page) ── */
+.pr-lines {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem; margin-top: 2.5rem;
+}
+.pr-line {
+  border: 1px solid var(--pr-line); border-radius: 14px;
+  padding: 1.75rem 1.5rem; background: #fff;
+  display: flex; flex-direction: column;
+}
+.pr-line--priced { border-color: var(--pr-blue); background: var(--pr-blue-soft); }
+.pr-line-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 0.14em; color: var(--pr-blue); margin-bottom: 0.9rem;
+}
+.pr-line-name {
+  font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--pr-navy);
+}
+.pr-line-desc {
+  margin-top: 0.65rem; font-size: 0.92rem; line-height: 1.55;
+  color: var(--pr-body); flex-grow: 1;
+}
+.pr-line-cta {
+  margin-top: 1.4rem; align-self: flex-start;
+  font-size: 0.88rem; font-weight: 600; color: var(--pr-blue);
+  text-decoration: none; border-bottom: 1px solid currentColor;
+  padding-bottom: 2px; cursor: pointer;
+}
+.pr-line-cta:hover { color: #1D4FD8; }
+.pr-line-cta:focus-visible { outline: 3px solid #93B4FF; outline-offset: 3px; }
+.pr-line-cta--quiet { color: var(--pr-body); border-bottom-color: #C4CEDA; }
+.pr-line-cta--quiet:hover { color: var(--pr-navy); border-bottom-color: currentColor; }
+
 /* ── Comparison matrix ── */
 .pr-table-wrap { margin-top: 2.25rem; overflow: hidden; border-radius: 10px; }
 .pr-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
@@ -278,6 +312,7 @@
 @media (max-width: 1024px) {
   .pr-inner, .pr-band-inner { padding: 0 1.5rem; }
   .pr-packages { grid-template-columns: repeat(2, 1fr); }
+  .pr-lines { grid-template-columns: 1fr; }
   .pr-solutions { grid-template-columns: repeat(2, 1fr); }
   .pr-model { grid-template-columns: 1fr; }
 }
@@ -289,6 +324,7 @@
   .pr-masthead { padding-top: 2rem; }
   .pr-mast-contact { text-align: left; }
   .pr-packages { grid-template-columns: 1fr; gap: 1rem; }
+  .pr-lines { grid-template-columns: 1fr; gap: 1rem; }
   .pr-pkg--featured { margin-top: 0.75rem; }
   .pr-solutions { grid-template-columns: 1fr; }
   .pr-deliverables { grid-template-columns: 1fr; }

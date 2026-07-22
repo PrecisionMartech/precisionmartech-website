@@ -1,6 +1,15 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useReveal } from '../useReveal';
 import '../pricing.css';
+
+const LINES = [
+  { num: '01', name: 'Websites',
+    desc: 'Marketing sites, landing pages and e-commerce storefronts built to load fast and convert.' },
+  { num: '02', name: 'Apps',
+    desc: 'Web and mobile applications — internal dashboards, customer-facing tools, API integrations.' },
+  { num: '03', name: 'AI Automations', priced: true,
+    desc: 'Workflows that remove manual work across forms, spreadsheets, email, SMS and your CRM.' },
+];
 
 const PACKAGES = [
   { name: 'Starter', setup: '$1,500', mo: '$195/mo',
@@ -88,6 +97,11 @@ const ADDONS = [
 
 export default function Pricing() {
   useReveal();
+  const navigate = useNavigate();
+  const goContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/', { state: { scrollTo: 'contact' } });
+  };
   return (
     <div className="pricing-page">
       <div className="pr-inner">
@@ -101,17 +115,56 @@ export default function Pricing() {
           </div>
           <div className="pr-mast-contact">
             <a href="https://precisionmartech.com">precisionmartech.com</a><br />
-            <a href="tel:+18186310588">818-631-0588</a><br />
-            <a href="mailto:jackc@precisionmartech.com">jackc@precisionmartech.com</a>
+            Websites · Apps · AI Automations
           </div>
         </header>
 
-        {/* ── Packages ── */}
+        {/* ── What we build ── */}
         <section className="pr-section">
-          <div className="pr-eyebrow reveal">Choose the level of support</div>
+          <div className="pr-eyebrow reveal">What we build</div>
           <h1 className="pr-title reveal" data-delay="1">
-            Automation packages built around your workflow
+            Three services. One place to start.
           </h1>
+          <p className="pr-lede reveal" data-delay="2">
+            Every project starts with a short discovery call so the scope is real before
+            anyone quotes a number. Automation packages are published below. Websites and
+            apps are quoted per project, because the range is too wide for a price sheet
+            to be honest about.
+          </p>
+
+          <div className="pr-lines">
+            {LINES.map(l => (
+              <div key={l.name}
+                   className={`pr-line reveal${l.priced ? ' pr-line--priced' : ''}`}>
+                <div className="pr-line-num">{l.num}</div>
+                <div className="pr-line-name">{l.name}</div>
+                <p className="pr-line-desc">{l.desc}</p>
+                {l.priced ? (
+                  <a href="#automation" className="pr-line-cta"
+                     onClick={e => {
+                       e.preventDefault();
+                       document.getElementById('automation')
+                         ?.scrollIntoView({ behavior: 'smooth' });
+                     }}>
+                    See packages below
+                  </a>
+                ) : (
+                  <a href="/#contact" onClick={goContact}
+                     className="pr-line-cta pr-line-cta--quiet">
+                    Request a quote
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Packages ── */}
+        <section className="pr-section" id="automation">
+          <div className="pr-eyebrow reveal">Choose the level of support</div>
+          <h2 className="pr-title reveal" data-delay="1">
+            Automation packages built around your workflow
+          </h2>
           <p className="pr-lede reveal" data-delay="2">
             Start with one focused automation or build a connected system across forms,
             spreadsheets, email, SMS and your CRM. Pricing below is a practical starting
@@ -260,12 +313,11 @@ export default function Pricing() {
           <div>
             <div className="pr-cta-text">Ready to map your workflow?</div>
             <div className="pr-cta-meta">
-              <a href="mailto:jackc@precisionmartech.com">jackc@precisionmartech.com</a>
-              {' · '}
-              <a href="tel:+18186310588">818-631-0588</a>
+              Tell us what you&apos;re running today and we&apos;ll come back with scope
+              and a fixed number.
             </div>
           </div>
-          <Link className="pr-cta-btn" to="/#contact">Start a project</Link>
+          <a className="pr-cta-btn" href="/#contact" onClick={goContact}>Start a project</a>
         </div>
 
         <div className="pr-fineprint">

@@ -99,16 +99,56 @@ function Services() {
   );
 }
 
+/* Where the contact form delivers.
+   Create a form at formspree.io, then paste the endpoint it gives you here.
+   Your email address lives on their side and never appears in this code or in
+   anything a visitor can view-source, so it stays out of reach of scrapers. */
+const FORM_ENDPOINT = 'https://formspree.io/f/xqerdlra';
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function Contact() {
   const [form, setForm] = useState({name:'',email:'',company:'',service:'',message:''});
-  const [status, setStatus] = useState<'idle'|'busy'|'done'>('idle');
-  const set = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) =>
+  const [status, setStatus] = useState<'idle'|'busy'|'done'|'error'>('idle');
+  const [error, setError] = useState('');
+  const set = (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement|HTMLSelectElement>) => {
+    if (status === 'error') { setStatus('idle'); setError(''); }
     setForm(f => ({...f, [e.target.name]: e.target.value}));
-  const send = () => {
-    if (!form.name || !form.email || !form.message) return;
+  };
+
+  const send = async () => {
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setError('Add your name, email and a short note so we know what to reply to.');
+      setStatus('error');
+      return;
+    }
+    if (!EMAIL_RE.test(form.email.trim())) {
+      setError('That email address looks incomplete — worth a second check.');
+      setStatus('error');
+      return;
+    }
+
     setStatus('busy');
-    // NOTE: this does not submit anywhere yet — see the handoff notes.
-    setTimeout(() => setStatus('done'), 1500);
+    setError('');
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          company: form.company.trim() || 'Not given',
+          service: form.service || 'Not specified',
+          message: form.message.trim(),
+          _subject: `precisionmartech.com — new enquiry from ${form.name.trim()}`,
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus('done');
+    } catch {
+      setError('That did not send. Try again in a moment.');
+      setStatus('error');
+    }
   };
   return (
     <section id="contact" className="contact">
@@ -155,6 +195,9 @@ function Contact() {
                 <button className="btn-fill" onClick={send} disabled={status==='busy'}>{status==='busy'?'Sending...':'Send message'}</button>
                 <span className="form-note">Response within 1 business day</span>
               </div>
+              {error && (
+                <div className="form-error" role="alert">{error}</div>
+              )}
             </div>
           )}
         </div>

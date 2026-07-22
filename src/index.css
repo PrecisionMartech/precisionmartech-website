@@ -403,3 +403,16 @@ body::before {
   .nav-links { gap: 0.7rem; font-size: 0.75rem; }
   .nav-wordmark { font-size: 0.78rem; }
 }
+
+/* Contact form error message */
+.form-error {
+  margin-top: 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  border-left: 3px solid #ff6b6b;
+  border-radius: 6px;
+  background: rgba(255, 107, 107, 0.08);
+  color: #ffb3b3;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
