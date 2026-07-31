@@ -44,7 +44,7 @@
 .pr-mast-contact a:hover { text-decoration: underline; }
 
 /* ── Section scaffolding ── */
-.pr-section { padding: 4.5rem 0 0; }
+.pr-section { padding: 4.5rem 0 0; scroll-margin-top: 6.5rem; }
 .pr-eyebrow {
   font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
   text-transform: uppercase; color: var(--pr-blue); margin-bottom: 0.85rem;
@@ -100,7 +100,7 @@
 
 /* ── Service lines (top of page) ── */
 .pr-lines {
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem; margin-top: 2.5rem;
 }
 .pr-line {
@@ -320,7 +320,7 @@
 @media (max-width: 768px) {
   .pricing-page { padding-top: 4.5rem; }
   .pr-inner, .pr-band-inner { padding: 0 1.25rem; }
-  .pr-section { padding-top: 3rem; }
+  .pr-section { padding-top: 3rem; scroll-margin-top: 5.75rem; }
   .pr-masthead { padding-top: 2rem; }
   .pr-mast-contact { text-align: left; }
   .pr-packages { grid-template-columns: 1fr; gap: 1rem; }
