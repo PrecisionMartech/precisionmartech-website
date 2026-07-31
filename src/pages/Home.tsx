@@ -45,7 +45,11 @@ function Hero() {
     <section>
       <div className="hero">
         <div className="hero-left">
-          <div className="hero-tag reveal">Precision Martech LLC</div>
+          <img
+            className="hero-logo reveal"
+            src="/images/precision-martech-logo.png"
+            alt="Precision Martech"
+          />
           <h1 className="hero-h1 reveal" data-delay="1">
             Built with<br/><em>intent.</em><br/>Shipped to work.
           </h1>
