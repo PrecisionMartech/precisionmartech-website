@@ -7,8 +7,10 @@ const LINES = [
     desc: 'Marketing sites, landing pages and e-commerce storefronts built to load fast and convert.' },
   { num: '02', name: 'Apps',
     desc: 'Web and mobile applications — internal dashboards, customer-facing tools, API integrations.' },
-  { num: '03', name: 'AI Automations', priced: true,
+  { num: '03', name: 'AI Automations', priced: true, anchor: 'automation', cta: 'See automation packages',
     desc: 'Workflows that remove manual work across forms, spreadsheets, email, SMS and your CRM.' },
+  { num: '04', name: 'Email Marketing', priced: true, anchor: 'email-marketing', cta: 'See email packages',
+    desc: 'E-commerce email campaigns, automated flows, segmentation, testing and reporting.' },
 ];
 
 const PACKAGES = [
@@ -20,6 +22,17 @@ const PACKAGES = [
     what: 'Connected automation system', who: 'Best for complex operations' },
   { name: 'Custom', setup: '$15,000+', mo: '$1,500+/mo',
     what: 'Custom architecture', who: 'Best for advanced needs' },
+];
+
+const EMAIL_PACKAGES = [
+  { name: 'Email Starter', setup: '$750', mo: '$500/mo',
+    what: '2 campaigns per month', who: 'Best for getting consistent' },
+  { name: 'Email Growth', setup: '$1,500', mo: '$1,000/mo',
+    what: '4 campaigns + core flows', who: 'Best for active stores', featured: true },
+  { name: 'Retention Pro', setup: '$3,000+', mo: '$2,000+/mo',
+    what: 'Full email program', who: 'Best for scaling brands' },
+  { name: 'Custom Email', setup: 'Quoted', mo: 'Quoted',
+    what: 'Custom scope', who: 'Best for complex catalogs' },
 ];
 
 const TIERS = ['Starter', 'Growth', 'Pro', 'Custom'];
@@ -84,6 +97,33 @@ const DELIVERABLES = [
   ]},
 ];
 
+const EMAIL_DELIVERABLES = [
+  { name: 'Email Starter', from: 'From $750 setup + $500/mo', items: [
+    'Light email platform review',
+    'Monthly campaign calendar',
+    'Two email campaigns per month',
+    'Basic performance reporting',
+  ]},
+  { name: 'Email Growth', from: 'From $1,500 setup + $1,000/mo', featured: true, items: [
+    'Four email campaigns per month',
+    'Welcome and abandoned cart flow review',
+    'Segmentation and subject line testing',
+    'Monthly reporting and recommendations',
+  ]},
+  { name: 'Retention Pro', from: 'From $3,000 setup + $2,000+/mo', items: [
+    'Full campaign planning and execution',
+    'Lifecycle flow builds and improvements',
+    'Customer segments, tests and reporting',
+    'Regular optimization and priority support',
+  ]},
+  { name: 'Custom Email', from: 'Quoted after discovery', items: [
+    'Large catalog or multi-brand support',
+    'Advanced Klaviyo or Mailchimp setup',
+    'Custom creative, offer and testing needs',
+    'Custom service agreement',
+  ]},
+];
+
 const ADDONS = [
   { name: 'Additional automated workflow', price: '$750–$2,500' },
   { name: 'Additional follow-up sequence', price: '$500–$1,500' },
@@ -93,6 +133,11 @@ const ADDONS = [
   { name: 'Dashboard or reporting view', price: '$1,000–$3,500' },
   { name: 'AI-assisted email drafting', price: '$750–$2,500' },
   { name: 'Training session & documentation', price: '$300–$900' },
+  { name: 'Klaviyo or Mailchimp account audit', price: '$500–$1,500' },
+  { name: 'Automated email flow build', price: '$750–$2,500' },
+  { name: 'Email campaign design & build', price: '$250–$750 each' },
+  { name: 'Email template system', price: '$750–$2,000' },
+  { name: 'Deliverability check', price: '$300–$900' },
 ];
 
 export default function Pricing() {
@@ -115,7 +160,7 @@ export default function Pricing() {
           </div>
           <div className="pr-mast-contact">
             <a href="https://precisionmartech.com">precisionmartech.com</a><br />
-            Websites · Apps · AI Automations
+            Websites · Apps · AI Automations · Email Marketing
           </div>
         </header>
 
@@ -123,13 +168,13 @@ export default function Pricing() {
         <section className="pr-section">
           <div className="pr-eyebrow reveal">What we build</div>
           <h1 className="pr-title reveal" data-delay="1">
-            Three services. One place to start.
+            Four services. One place to start.
           </h1>
           <p className="pr-lede reveal" data-delay="2">
             Every project starts with a short discovery call so the scope is real before
-            anyone quotes a number. Automation packages are published below. Websites and
-            apps are quoted per project, because the range is too wide for a price sheet
-            to be honest about.
+            anyone quotes a number. Automation and email marketing packages are published
+            below. Websites and apps are quoted per project, because the range is too wide
+            for a price sheet to be honest about.
           </p>
 
           <div className="pr-lines">
@@ -140,13 +185,13 @@ export default function Pricing() {
                 <div className="pr-line-name">{l.name}</div>
                 <p className="pr-line-desc">{l.desc}</p>
                 {l.priced ? (
-                  <a href="#automation" className="pr-line-cta"
+                  <a href={`#${l.anchor ?? 'automation'}`} className="pr-line-cta"
                      onClick={e => {
                        e.preventDefault();
-                       document.getElementById('automation')
+                       document.getElementById(l.anchor ?? 'automation')
                          ?.scrollIntoView({ behavior: 'smooth' });
                      }}>
-                    See packages below
+                    {l.cta ?? 'See packages below'}
                   </a>
                 ) : (
                   <a href="/#contact" onClick={goContact}
@@ -187,10 +232,38 @@ export default function Pricing() {
           </div>
         </section>
 
+        {/* ── Email marketing packages ── */}
+        <section className="pr-section" id="email-marketing">
+          <div className="pr-eyebrow reveal">Email marketing for e-commerce</div>
+          <h2 className="pr-title reveal" data-delay="1">
+            Campaigns, flows and retention work built around revenue
+          </h2>
+          <p className="pr-lede reveal" data-delay="2">
+            Email services are for brands that need consistent campaigns, stronger
+            automated customer journeys, cleaner segmentation and reporting they understand.
+            Final pricing depends on send volume, catalog size, creative needs and platform.
+          </p>
+
+          <div className="pr-packages">
+            {EMAIL_PACKAGES.map(p => (
+              <div key={p.name}
+                   className={`pr-pkg reveal${p.featured ? ' pr-pkg--featured' : ''}`}>
+                {p.featured && <div className="pr-badge">Most popular</div>}
+                <div className="pr-pkg-name">{p.name}</div>
+                <div className="pr-pkg-price">{p.setup}</div>
+                <div className="pr-pkg-unit">setup</div>
+                <div className="pr-pkg-mo">{p.mo}</div>
+                <div className="pr-pkg-what">{p.what}</div>
+                <div className="pr-pkg-who">{p.who}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── Comparison matrix ── */}
         <section className="pr-section">
           <div className="pr-eyebrow reveal">At a glance</div>
-          <h2 className="pr-title reveal" data-delay="1">What each package can include</h2>
+          <h2 className="pr-title reveal" data-delay="1">What each automation package includes</h2>
 
           <div className="pr-table-wrap reveal" data-delay="2">
             <table className="pr-table">
@@ -277,9 +350,29 @@ export default function Pricing() {
         {/* ── Deliverables ── */}
         <section className="pr-section">
           <div className="pr-eyebrow reveal">Package scope</div>
-          <h2 className="pr-title reveal" data-delay="1">Typical deliverables by level</h2>
+          <h2 className="pr-title reveal" data-delay="1">Typical automation deliverables by level</h2>
           <div className="pr-deliverables">
             {DELIVERABLES.map(d => (
+              <div key={d.name}
+                   className={`pr-del reveal${d.featured ? ' pr-del--featured' : ''}`}>
+                <div className="pr-del-head">
+                  <span className="pr-del-name">{d.name}</span>
+                  <span className="pr-del-from">{d.from}</span>
+                </div>
+                <ul className="pr-del-list">
+                  {d.items.map(i => <li key={i}>{i}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Email deliverables ── */}
+        <section className="pr-section">
+          <div className="pr-eyebrow reveal">Email marketing scope</div>
+          <h2 className="pr-title reveal" data-delay="1">Typical email deliverables by level</h2>
+          <div className="pr-deliverables">
+            {EMAIL_DELIVERABLES.map(d => (
               <div key={d.name}
                    className={`pr-del reveal${d.featured ? ' pr-del--featured' : ''}`}>
                 <div className="pr-del-head">
@@ -321,7 +414,7 @@ export default function Pricing() {
         </div>
 
         <div className="pr-fineprint">
-          Precision Martech LLC · Business Automation Services
+          Precision Martech LLC · Business Automation & Email Marketing Services
         </div>
       </div>
     </div>
