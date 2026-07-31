@@ -28,8 +28,8 @@ function HeroPanel() {
       <div className="hero-card">
         <div className="hc-label">What we build</div>
         <div style={{display:'flex',flexDirection:'column',gap:'0.6rem',marginTop:'0.75rem'}}>
-          {['Websites & e-commerce','Web & mobile apps','AI automations'].map((s,i) => (
-            <div key={i} style={{display:'flex',alignItems:'center',gap:'0.75rem',padding:'0.6rem 0',borderBottom:i<2?'1px solid var(--border)':'none'}}>
+          {['Websites & e-commerce','Email marketing','Web & mobile apps','AI automations'].map((s,i) => (
+            <div key={i} style={{display:'flex',alignItems:'center',gap:'0.75rem',padding:'0.6rem 0',borderBottom:i<3?'1px solid var(--border)':'none'}}>
               <div style={{width:6,height:6,borderRadius:'50%',background:'var(--electric)',flexShrink:0}} />
               <span style={{fontSize:'0.88rem',color:'var(--text-secondary)'}}>{s}</span>
             </div>
@@ -77,6 +77,9 @@ const SERVICES = [
   { num:'03', name:'AI Automations', short:'Less manual work. More throughput.',
     desc:'Intelligent workflows that eliminate repetitive work and scale your operations. AI-powered pipelines tailored to your business — from outreach to content to internal process automation.',
     tags:['Workflow automation','Lead systems','AI pipelines','CRM integration','Custom agents','N8N / Zapier'] },
+  { num:'04', name:'Email Marketing', short:'More revenue from every send.',
+    desc:'Email marketing for e-commerce brands built around consistent campaigns and automated customer journeys. We plan, build, test, and improve the emails that turn subscribers into customers and bring past buyers back.',
+    tags:['Campaign strategy','Automated flows','Klaviyo','Mailchimp','Segmentation','A/B testing','Deliverability','Performance reporting'] },
 ];
 
 function Services() {
@@ -84,7 +87,7 @@ function Services() {
     <section id="services" className="services">
       <div className="services-inner">
         <div className="sec-eyebrow reveal">What we do</div>
-        <h2 className="sec-title reveal" data-delay="1">Three disciplines.<br/>One precise team.</h2>
+        <h2 className="sec-title reveal" data-delay="1">Four disciplines.<br/>One precise team.</h2>
         {SERVICES.map(s => (
           <div className="service-item" key={s.num}>
             <div className="si-meta reveal">
@@ -160,11 +163,10 @@ function Contact() {
         <div className="contact-left">
           <div className="sec-eyebrow reveal">Get in touch</div>
           <h2 className="sec-title reveal" data-delay="1">Let's build something precise.</h2>
-          <p className="contact-sub reveal" data-delay="2">Tell us about your project and we'll respond within one business day. Whether you're a local business ready to grow online or an agency that needs a trusted build partner.</p>
+          <p className="contact-sub reveal" data-delay="2">Tell us about your project and we'll respond within one business day. Whether you're a local business ready to grow online or an e-commerce brand ready to improve its email marketing.</p>
           <div className="contact-meta reveal" data-delay="3">
             <div className="cm-row"><div className="cm-label">Website</div><div className="cm-val">precisionmartech.com</div></div>
-            <div className="cm-row"><div className="cm-label">Services</div><div className="cm-val">Websites · Apps · AI Automations</div></div>
-            <div className="cm-row"><div className="cm-label">White label</div><div className="cm-val">Agency partnerships available</div></div>
+            <div className="cm-row"><div className="cm-label">Services</div><div className="cm-val">Websites · Apps · AI Automations · Email Marketing</div></div>
           </div>
         </div>
         <div className="reveal" data-delay="1">
@@ -189,8 +191,8 @@ function Contact() {
                     <option value="website">Website</option>
                     <option value="app">App</option>
                     <option value="ai">AI Automation</option>
+                    <option value="email-marketing">Email Marketing</option>
                     <option value="multiple">Multiple services</option>
-                    <option value="whitelabel">White label build</option>
                   </select>
                 </div>
               </div>
