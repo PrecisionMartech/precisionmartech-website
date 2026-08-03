@@ -67,17 +67,26 @@ function Hero() {
   );
 }
 
-const SERVICES = [
+type Service = {
+  num: string;
+  name: string;
+  short: string;
+  desc: string;
+  tags: string[];
+  href?: string;
+};
+
+const SERVICES: Service[] = [
   { num:'01', name:'Websites', short:'Fast. Sharp. Conversion-ready.',
     desc:'Marketing sites, landing pages, and e-commerce storefronts built to load fast, represent your brand with precision, and turn visitors into customers.',
     tags:['Marketing sites','E-commerce','Landing pages','CMS integration','Performance builds','Mobile-first'] },
   { num:'02', name:'Apps', short:'Tools people actually use.',
     desc:'Web and mobile applications built for real-world use cases. From internal dashboards to customer-facing products, built with clean architecture and long-term maintainability.',
     tags:['Web apps','Mobile apps','Custom dashboards','API integrations','SaaS tools','Cross-platform'] },
-  { num:'03', name:'AI Automations', short:'Less manual work. More throughput.',
+  { num:'03', name:'AI Automations', href:'/pricing#automation', short:'Less manual work. More throughput.',
     desc:'Intelligent workflows that eliminate repetitive work and scale your operations. AI-powered pipelines tailored to your business — from outreach to content to internal process automation.',
     tags:['Workflow automation','Lead systems','AI pipelines','CRM integration','Custom agents','N8N / Zapier'] },
-  { num:'04', name:'Email Marketing', short:'More revenue from every send.',
+  { num:'04', name:'Email Marketing', href:'/pricing#email-marketing', short:'More revenue from every send.',
     desc:'Email marketing for e-commerce brands built around consistent campaigns and automated customer journeys. We plan, build, test, and improve the emails that turn subscribers into customers and bring past buyers back.',
     tags:['Campaign strategy','Automated flows','Klaviyo','Mailchimp','Segmentation','A/B testing','Deliverability','Performance reporting'] },
 ];
@@ -92,7 +101,9 @@ function Services() {
           <div className="service-item" key={s.num}>
             <div className="si-meta reveal">
               <div className="si-num">{s.num}</div>
-              <div className="si-name">{s.name}</div>
+              <h3 className="si-name">
+                {s.href ? <a className="si-title-link" href={s.href}>{s.name}</a> : s.name}
+              </h3>
               <div className="si-short">{s.short}</div>
             </div>
             <div className="si-body reveal" data-delay="1">
