@@ -8,12 +8,27 @@ import './index.css';
 
 /** Reset scroll position on navigation, unless we're heading to a section. */
 function ScrollToTop() {
-  const { pathname, state } = useLocation();
+  const { pathname, hash, state } = useLocation();
+
   useEffect(() => {
-    if (!(state as { scrollTo?: string } | null)?.scrollTo) {
-      window.scrollTo(0, 0);
+    if ((state as { scrollTo?: string } | null)?.scrollTo) {
+      return;
     }
-  }, [pathname, state]);
+
+    if (hash) {
+      const id = decodeURIComponent(hash.slice(1));
+      const scrollToHash = () => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      requestAnimationFrame(scrollToHash);
+      const retry = window.setTimeout(scrollToHash, 100);
+      return () => window.clearTimeout(retry);
+    }
+
+    window.scrollTo(0, 0);
+  }, [pathname, hash, state]);
+
   return null;
 }
 
