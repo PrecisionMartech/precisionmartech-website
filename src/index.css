@@ -214,6 +214,9 @@ body::before {
 .service-item:nth-child(even) > * { direction: ltr; }
 .si-num { font-family:'JetBrains Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; color:var(--text-muted); margin-bottom:1.5rem; }
 .si-name { font-family:'Syne',sans-serif; font-weight:700; font-size:2rem; color:var(--text-primary); letter-spacing:-0.02em; margin-bottom:0.75rem; line-height:1.1; }
+.si-title-link { color: inherit; text-decoration: none; transition: color 0.2s; }
+.si-title-link:hover { color: var(--electric); }
+.si-title-link:focus-visible { color: var(--electric); outline: 2px solid var(--electric); outline-offset: 4px; border-radius: 2px; }
 .si-short { font-size:0.9rem; color:var(--text-secondary); line-height:1.6; }
 .si-desc { font-size:1rem; color:var(--text-secondary); line-height:1.8; font-weight:300; margin-bottom:2rem; }
 .si-features { display:flex; flex-wrap:wrap; gap:0.5rem; }
