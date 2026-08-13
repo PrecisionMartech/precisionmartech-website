@@ -1,0 +1,1050 @@
+.email-portfolio-page {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.ep-hero {
+  min-height: 92vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  background-image:
+    linear-gradient(110deg, rgba(2, 6, 14, 0.92) 0%, rgba(2, 6, 14, 0.74) 48%, rgba(2, 6, 14, 0.96) 100%),
+    url('/images/precision-circuit-board.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.ep-hero::after,
+.ep-cta::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 38%;
+  background: linear-gradient(180deg, transparent, rgba(2, 6, 14, 0.98));
+  pointer-events: none;
+}
+
+.ep-hero-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 3rem 5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr);
+  gap: 5rem;
+  align-items: end;
+  position: relative;
+  z-index: 1;
+}
+
+.ep-logo {
+  display: block;
+  width: min(100%, 420px);
+  height: auto;
+  margin-bottom: 3rem;
+  filter: drop-shadow(0 14px 34px rgba(0, 0, 0, 0.6));
+}
+
+.ep-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 6.8vw, 7.4rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  max-width: 10.8ch;
+  color: var(--text-primary);
+}
+
+.ep-lede {
+  max-width: 58ch;
+  margin-top: 2rem;
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.ep-hero-panel {
+  border: 1px solid var(--border);
+  background: rgba(4, 10, 20, 0.68);
+  backdrop-filter: blur(16px);
+  border-radius: 6px;
+  padding: 1.4rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.ep-panel-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--electric);
+}
+
+.ep-panel-line {
+  height: 1px;
+  margin: 1rem 0;
+  background: linear-gradient(90deg, var(--electric), transparent);
+}
+
+.ep-panel-copy {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.ep-showcase {
+  padding: 7rem 0 8rem;
+  background-image:
+    radial-gradient(circle at 50% 14%, rgba(26, 127, 255, 0.22), transparent 36%),
+    linear-gradient(180deg, rgba(2, 6, 14, 0.88), rgba(2, 6, 14, 0.94)),
+    url('/images/precision-circuit-board.webp');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.ep-showcase-head {
+  max-width: 1400px;
+  margin: 0 auto 3.5rem;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 520px);
+  gap: 4rem;
+  align-items: end;
+}
+
+.ep-section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.3rem, 4vw, 4.6rem);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  max-width: 12ch;
+}
+
+.ep-showcase-note {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 52ch;
+}
+
+.ep-carousel {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  touch-action: pan-y;
+}
+
+.ep-stage {
+  position: relative;
+  height: min(68vw, 720px);
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1300px;
+}
+
+.ep-stage::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -1.5rem;
+  width: min(82vw, 940px);
+  height: min(16vw, 150px);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(218, 228, 238, 0.28) 0%,
+      rgba(106, 137, 166, 0.24) 38%,
+      rgba(26, 127, 255, 0.14) 58%,
+      transparent 84%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 8;
+}
+
+.ep-stage-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -0.45rem;
+  width: min(58vw, 670px);
+  height: min(10vw, 98px);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(0, 0, 0, 0.92) 32%,
+      rgba(0, 0, 0, 0.68) 54%,
+      rgba(0, 0, 0, 0.22) 74%,
+      transparent 88%);
+  filter: blur(8px);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.ep-stage-shadow::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 58%;
+  height: 42%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.92);
+  filter: blur(4px);
+}
+
+.ep-shot {
+  --offset: 0;
+  position: absolute;
+  isolation: isolate;
+  width: min(32vw, 390px);
+  height: min(62vw, 680px);
+  min-height: 470px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transform:
+    translateX(calc(var(--offset) * min(21vw, 245px)))
+    translateY(calc(var(--abs-offset) * 18px))
+    rotateY(calc(var(--offset) * -13deg))
+    rotateZ(calc(var(--offset) * -2.8deg))
+    scale(calc(1 - (var(--abs-offset) * 0.12)));
+  opacity: calc(1 - (var(--abs-offset) * 0.23));
+  z-index: calc(10 - var(--abs-offset));
+  transition: transform 650ms cubic-bezier(.2,.8,.2,1), opacity 650ms ease, filter 650ms ease;
+  filter: brightness(calc(1 - (var(--abs-offset) * 0.16))) saturate(calc(1 - (var(--abs-offset) * 0.12)));
+}
+
+.ep-shot::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  width: 112%;
+  height: 62px;
+  transform: translateX(-50%) rotateZ(calc(var(--offset) * 2.8deg));
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.58) 38%,
+      rgba(0, 0, 0, 0.2) 64%,
+      transparent 82%);
+  filter: blur(7px);
+  opacity: calc(0.78 - (var(--abs-offset) * 0.16));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ep-shot[data-visible='false'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ep-shot[data-active='true'] {
+  filter: brightness(1.06) saturate(1.05);
+}
+
+.ep-shot[data-active='true']::after {
+  bottom: -42px;
+  width: 128%;
+  height: 78px;
+  opacity: 1;
+  filter: blur(8px);
+}
+
+.ep-shot img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 8px;
+  border: 1px solid rgba(226, 234, 248, 0.22);
+  box-shadow:
+    0 44px 92px rgba(0, 0, 0, 0.78),
+    0 26px 34px rgba(0, 0, 0, 0.58),
+    0 0 0 1px rgba(26, 127, 255, 0.18),
+    0 0 58px rgba(26, 127, 255, 0.2);
+  background: #fff;
+}
+
+.ep-shot[data-fit='contain'] img {
+  object-fit: contain;
+  object-position: center top;
+  background:
+    linear-gradient(180deg, #8a0b50 0%, #7b0a48 58%, #570632 100%);
+}
+
+.ep-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.ep-arrow {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(4, 10, 20, 0.78);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s, background 0.2s;
+}
+
+.ep-arrow:hover {
+  border-color: var(--electric);
+  background: rgba(26, 127, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.ep-progress {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.ep-progress span {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(168, 189, 212, 0.35);
+  transition: width 0.25s, background 0.25s;
+}
+
+.ep-progress span[data-active='true'] {
+  width: 26px;
+  background: var(--electric);
+}
+
+.ep-empty {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 3rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(4, 10, 20, 0.78);
+  text-align: center;
+}
+
+.ep-empty-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--electric);
+  margin-bottom: 1rem;
+}
+
+.ep-empty h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.ep-empty p {
+  margin: 1rem auto 0;
+  max-width: 58ch;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.ep-empty span {
+  color: var(--text-primary);
+}
+
+.ep-cta {
+  position: relative;
+  padding: 6rem 0;
+  background-image:
+    linear-gradient(100deg, rgba(2, 6, 14, 0.92), rgba(2, 6, 14, 0.66), rgba(2, 6, 14, 0.94)),
+    url('/images/precision-circuit-board.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.ep-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.ep-cta-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .ep-hero-inner,
+  .ep-showcase-head {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .ep-hero {
+    min-height: auto;
+  }
+
+  .ep-hero-inner {
+    padding-top: 9rem;
+  }
+
+  .ep-carousel,
+  .ep-cta-inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .ep-cta-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ep-cta-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .ep-hero-inner {
+    padding: 8rem 1.25rem 4rem;
+  }
+
+  .ep-logo {
+    width: min(100%, 330px);
+    margin-bottom: 2rem;
+  }
+
+  .ep-title {
+    font-size: clamp(2.15rem, 10.5vw, 2.75rem);
+    max-width: 100%;
+  }
+
+  .ep-showcase {
+    padding: 4.5rem 0 5.5rem;
+  }
+
+  .ep-showcase-head,
+  .ep-carousel,
+  .ep-cta-inner {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .ep-stage {
+    min-height: 430px;
+    height: 560px;
+    overflow: visible;
+  }
+
+  .ep-stage-shadow {
+    bottom: -0.35rem;
+    width: 92vw;
+    height: 104px;
+    filter: blur(11px);
+    opacity: 1;
+  }
+
+  .ep-shot {
+    width: min(70vw, 300px);
+    height: 520px;
+    min-height: 0;
+    transform:
+      translateX(calc(var(--offset) * 36vw))
+      translateY(calc(var(--abs-offset) * 10px))
+      rotateZ(calc(var(--offset) * -3deg))
+      scale(calc(1 - (var(--abs-offset) * 0.16)));
+  }
+
+  .ep-shot::after {
+    bottom: -28px;
+    height: 54px;
+  }
+
+  .ep-shot[data-active='true']::after {
+    bottom: -34px;
+    height: 66px;
+  }
+
+  .ep-shot img {
+    border-radius: 6px;
+  }
+
+  .ep-empty {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .ep-cta {
+    padding: 4.5rem 0;
+  }
+
+  .ep-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ep-cta-actions a {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .ep-stage {
+    height: 500px;
+  }
+
+  .ep-shot {
+    width: min(76vw, 280px);
+    height: 470px;
+  }
+
+  .ep-controls {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Mockup-aligned portfolio scene */
+.email-portfolio-page {
+  background: #020712;
+}
+
+.ep-scene {
+  position: relative;
+  min-height: calc(100vh - 2rem);
+  padding: 7.25rem 0 2.2rem;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at 80% 8%, rgba(29, 162, 255, 0.34), transparent 30%),
+    radial-gradient(ellipse at 50% 70%, rgba(9, 130, 255, 0.22), transparent 42%),
+    linear-gradient(180deg, rgba(1, 6, 16, 0.58), rgba(1, 6, 16, 0.9) 76%, #020712 100%),
+    url('/images/precision-circuit-board.webp');
+  background-size: cover;
+  background-position: center top;
+  border-bottom: 1px solid rgba(26, 127, 255, 0.22);
+}
+
+.ep-scene::before {
+  content: '';
+  position: absolute;
+  inset: 48% 0 0;
+  background:
+    linear-gradient(180deg, transparent, rgba(6, 29, 51, 0.38) 32%, rgba(0, 8, 18, 0.92) 80%),
+    repeating-linear-gradient(90deg, rgba(99, 187, 255, 0.08) 0 1px, transparent 1px 74px);
+  opacity: 0.82;
+  pointer-events: none;
+}
+
+.ep-scene-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.ep-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 330px);
+  grid-template-areas:
+    "brand side"
+    "copy side";
+  gap: 2.5rem;
+  align-items: end;
+}
+
+.ep-logo {
+  grid-area: brand;
+  width: min(34vw, 340px);
+  margin: 0 0 1.85rem;
+}
+
+.ep-copy {
+  grid-area: copy;
+}
+
+.ep-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.86rem;
+  line-height: 1.2;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--electric-bright);
+  margin-bottom: 0.75rem;
+}
+
+.ep-title {
+  font-size: clamp(3.2rem, 5.35vw, 6.25rem);
+  line-height: 0.88;
+  letter-spacing: 0;
+  max-width: 11.4ch;
+  text-transform: uppercase;
+}
+
+.ep-title span {
+  color: var(--electric);
+  text-shadow: 0 0 32px rgba(26, 127, 255, 0.36);
+}
+
+.ep-subtitle {
+  margin-top: 0.95rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.82rem, 1.1vw, 1rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(226, 234, 248, 0.88);
+}
+
+.ep-lede {
+  position: relative;
+  max-width: 48ch;
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  color: rgba(226, 234, 248, 0.82);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.ep-lede::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  bottom: 0.15rem;
+  width: 3px;
+  background: var(--electric-bright);
+  box-shadow: 0 0 18px rgba(61, 157, 255, 0.65);
+}
+
+.ep-side-mark {
+  grid-area: side;
+  justify-self: end;
+  align-self: end;
+  max-width: 24ch;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--electric-bright);
+  text-shadow: 0 0 18px rgba(61, 157, 255, 0.38);
+}
+
+.ep-carousel {
+  max-width: 1360px;
+  padding: 0;
+  margin-top: -0.7rem;
+}
+
+.ep-stage {
+  height: clamp(430px, 49vw, 610px);
+  min-height: 0;
+  align-items: end;
+  perspective: 1500px;
+}
+
+.ep-stage::before {
+  bottom: -2rem;
+  width: min(90vw, 1060px);
+  height: 170px;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(121, 185, 231, 0.42) 0%,
+      rgba(41, 124, 185, 0.22) 31%,
+      rgba(0, 0, 0, 0.22) 54%,
+      transparent 82%);
+  filter: blur(10px);
+  z-index: 8;
+}
+
+.ep-stage-shadow {
+  bottom: -0.95rem;
+  width: min(76vw, 860px);
+  height: 120px;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(0, 0, 0, 0.82) 34%,
+      rgba(0, 0, 0, 0.32) 65%,
+      transparent 88%);
+  filter: blur(10px);
+}
+
+.ep-shot {
+  width: clamp(170px, 18.5vw, 285px);
+  height: clamp(390px, 43vw, 575px);
+  min-height: 0;
+  transform:
+    translateX(calc(var(--offset) * clamp(170px, 18vw, 250px)))
+    translateY(calc(var(--abs-offset) * 22px))
+    rotateY(calc(var(--offset) * -11deg))
+    rotateZ(calc(var(--offset) * -2.2deg))
+    scale(calc(1 - (var(--abs-offset) * 0.105)));
+  opacity: calc(1 - (var(--abs-offset) * 0.18));
+  filter: brightness(calc(1 - (var(--abs-offset) * 0.13))) saturate(calc(1 - (var(--abs-offset) * 0.1)));
+}
+
+.ep-shot[data-active='true'] {
+  filter: brightness(1.08) saturate(1.08);
+}
+
+.ep-shot img {
+  border-radius: 10px;
+  border-color: rgba(150, 211, 255, 0.28);
+  box-shadow:
+    0 58px 70px rgba(0, 0, 0, 0.86),
+    0 28px 34px rgba(0, 0, 0, 0.58),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 0 0 1px rgba(26, 127, 255, 0.18);
+}
+
+.ep-shot[data-active='true'] img {
+  border-color: rgba(94, 210, 255, 0.9);
+  box-shadow:
+    0 68px 86px rgba(0, 0, 0, 0.9),
+    0 28px 34px rgba(0, 0, 0, 0.62),
+    0 0 0 1px rgba(80, 213, 255, 0.9),
+    0 0 34px rgba(26, 180, 255, 0.62);
+}
+
+.ep-shot::after {
+  bottom: -44px;
+  height: 76px;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.62) 39%,
+      rgba(41, 147, 218, 0.16) 64%,
+      transparent 86%);
+}
+
+.ep-shot[data-active='true']::after {
+  bottom: -54px;
+  height: 96px;
+}
+
+.ep-controls {
+  margin-top: 1rem;
+}
+
+.ep-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 30;
+  width: 64px;
+  height: 64px;
+  transform: translateY(-20%);
+  border-color: rgba(107, 213, 255, 0.78);
+  background: rgba(1, 12, 25, 0.74);
+  box-shadow: 0 0 28px rgba(26, 127, 255, 0.28);
+}
+
+.ep-arrow:hover {
+  transform: translateY(-22%);
+}
+
+.ep-controls .ep-arrow:first-child {
+  left: 0;
+}
+
+.ep-controls .ep-arrow:last-child {
+  right: 0;
+}
+
+.ep-progress {
+  justify-content: center;
+  margin-top: 0.35rem;
+}
+
+.ep-progress span {
+  width: 48px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(61, 157, 255, 0.18);
+}
+
+.ep-progress span[data-active='true'] {
+  width: 76px;
+  background: var(--electric-bright);
+  box-shadow: 0 0 18px rgba(61, 157, 255, 0.58);
+}
+
+.ep-cta-panel {
+  position: relative;
+  margin-top: 2.2rem;
+  min-height: 142px;
+  border: 1px solid rgba(61, 157, 255, 0.7);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(2, 15, 31, 0.88), rgba(4, 19, 36, 0.62)),
+    linear-gradient(90deg, rgba(26, 127, 255, 0.13), transparent);
+  box-shadow:
+    inset 0 0 0 1px rgba(61, 157, 255, 0.12),
+    0 0 44px rgba(26, 127, 255, 0.15);
+  padding: 2rem 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.ep-cta-panel::before,
+.ep-cta-panel::after {
+  content: '';
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border-color: var(--electric-bright);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.ep-cta-panel::before {
+  left: -1px;
+  bottom: -1px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.ep-cta-panel::after {
+  right: -1px;
+  top: -1px;
+  border-right: 1px solid;
+  border-top: 1px solid;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.ep-panel-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--electric-bright);
+  margin-bottom: 0.8rem;
+}
+
+.ep-cta-panel h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+  color: var(--text-primary);
+}
+
+.ep-cta-panel p {
+  margin-top: 0.45rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.ep-panel-button {
+  flex: 0 0 auto;
+  min-width: 210px;
+  padding: 1.05rem 1.7rem;
+  border-radius: 7px;
+  background: var(--electric);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 14px 34px rgba(26, 127, 255, 0.34);
+}
+
+.ep-panel-button::after {
+  content: ' ->';
+}
+
+.ep-proof {
+  display: none;
+}
+
+.ep-proof-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.ep-proof-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 0.96;
+  color: var(--text-primary);
+  max-width: 12ch;
+}
+
+.ep-proof p {
+  max-width: 48ch;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.ep-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .ep-scene {
+    padding-top: 8.25rem;
+  }
+
+  .ep-scene-inner,
+  .ep-proof-inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .ep-top,
+  .ep-proof-inner {
+    grid-template-columns: 1fr;
+    display: block;
+  }
+
+  .ep-side-mark {
+    display: none;
+  }
+
+  .ep-logo {
+    width: min(70vw, 330px);
+  }
+
+  .ep-proof p {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ep-scene {
+    padding-top: 7.4rem;
+  }
+
+  .ep-scene-inner {
+    padding: 0 1.25rem;
+  }
+
+  .ep-logo {
+    width: min(86vw, 320px);
+    margin-bottom: 1.35rem;
+  }
+
+  .ep-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.24em;
+  }
+
+  .ep-title {
+    font-size: clamp(2.25rem, 11.4vw, 3.15rem);
+    line-height: 0.94;
+  }
+
+  .ep-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+  }
+
+  .ep-lede {
+    font-size: 0.94rem;
+    line-height: 1.58;
+  }
+
+  .ep-carousel {
+    margin-top: 1.2rem;
+  }
+
+  .ep-stage {
+    height: 470px;
+  }
+
+  .ep-shot {
+    width: min(62vw, 260px);
+    height: 420px;
+    transform:
+      translateX(calc(var(--offset) * 33vw))
+      translateY(calc(var(--abs-offset) * 12px))
+      rotateZ(calc(var(--offset) * -3deg))
+      scale(calc(1 - (var(--abs-offset) * 0.15)));
+  }
+
+  .ep-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ep-controls .ep-arrow:first-child {
+    left: -0.65rem;
+  }
+
+  .ep-controls .ep-arrow:last-child {
+    right: -0.65rem;
+  }
+
+  .ep-progress span {
+    width: 24px;
+  }
+
+  .ep-progress span[data-active='true'] {
+    width: 44px;
+  }
+
+  .ep-cta-panel {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    display: block;
+  }
+
+  .ep-panel-button {
+    display: block;
+    min-width: 0;
+    margin-top: 1.2rem;
+  }
+
+  .ep-proof {
+    padding: 3rem 0;
+  }
+
+  .ep-proof-inner {
+    padding: 0 1.25rem;
+  }
+}

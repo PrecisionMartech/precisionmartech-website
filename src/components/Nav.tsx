@@ -33,6 +33,7 @@ export default function Nav() {
         </Link>
         <ul className="nav-links">
           <li><a href="/#services" onClick={e => { e.preventDefault(); goToSection('services'); }}>Services</a></li>
+          <li><Link to="/email-marketing">Emails</Link></li>
           <li><Link to="/pricing">Pricing</Link></li>
           <li><a href="/#contact" onClick={e => { e.preventDefault(); goToSection('contact'); }}>Contact</a></li>
         </ul>

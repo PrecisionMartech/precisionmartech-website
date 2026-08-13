@@ -395,7 +395,7 @@ body::before {
 /* ── MULTI-PAGE NAV ───────────────────────────────────────
    The links were hidden below 1024px back when this was a single scrolling
    page. Now /pricing is its own route, so they have to stay reachable.
-   Wordmark + 3 links + button is ~500px of content, which fits no phone, so
+   Wordmark + 4 links + button is ~580px of content, which fits no phone, so
    below 768px the nav stacks: wordmark on top, links underneath. */
 @media (max-width: 1024px) {
   .nav-links {
@@ -422,7 +422,7 @@ body::before {
   .nav-wordmark { font-size: 0.8rem; }
   .nav-links {
     width: 100%;
-    gap: 1.6rem;
+    gap: 1.15rem;
     padding: 0;
   }
   .nav-links a {
@@ -440,6 +440,6 @@ body::before {
 
 @media (max-width: 360px) {
   .nav-wordmark { font-size: 0.72rem; letter-spacing: 0.08em; }
-  .nav-links { gap: 1.1rem; }
+  .nav-links { gap: 0.85rem; }
   .nav-links a { font-size: 0.64rem; }
 }
