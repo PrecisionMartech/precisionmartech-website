@@ -196,7 +196,7 @@ export default function Pricing() {
                 ) : (
                   <a href="/#contact" onClick={goContact}
                      className="pr-line-cta pr-line-cta--quiet">
-                    Request a quote
+                    Ask for a quote
                   </a>
                 )}
               </div>

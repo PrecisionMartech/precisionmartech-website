@@ -77,10 +77,10 @@ type Service = {
 };
 
 const SERVICES: Service[] = [
-  { num:'01', name:'Websites', short:'Fast. Sharp. Conversion-ready.',
+  { num:'01', name:'Websites', href:'/work', short:'Fast. Sharp. Conversion-ready.',
     desc:'Marketing sites, landing pages, and e-commerce storefronts built to load fast, represent your brand with precision, and turn visitors into customers.',
     tags:['Marketing sites','E-commerce','Landing pages','CMS integration','Performance builds','Mobile-first'] },
-  { num:'02', name:'Apps', short:'Tools people actually use.',
+  { num:'02', name:'Apps', href:'/work', short:'Tools people actually use.',
     desc:'Web and mobile applications built for real-world use cases. From internal dashboards to customer-facing products, built with clean architecture and long-term maintainability.',
     tags:['Web apps','Mobile apps','Custom dashboards','API integrations','SaaS tools','Cross-platform'] },
   { num:'03', name:'AI Automations', href:'/pricing#automation', short:'Less manual work. More throughput.',

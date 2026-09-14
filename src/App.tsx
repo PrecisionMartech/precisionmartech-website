@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Pricing from './pages/Pricing';
 import EmailPortfolio from './pages/EmailPortfolio';
+import Work from './pages/Work';
 import './index.css';
 
 /** Reset scroll position on navigation, unless we're heading to a section. */
@@ -41,6 +42,8 @@ export default function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/websites-and-apps" element={<Work />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/email-marketing" element={<EmailPortfolio />} />
           <Route path="/email-portfolio" element={<EmailPortfolio />} />
