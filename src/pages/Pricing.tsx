@@ -153,7 +153,7 @@ export default function Pricing() {
 
         <header className="pr-masthead reveal">
           <div>
-            <div className="pr-mast-mark">Precision Martech LLC</div>
+            <div className="pr-mast-mark">Precision Martech</div>
             <p className="pr-mast-tag">
               Practical systems that reduce manual work and keep leads moving.
             </p>
@@ -325,7 +325,7 @@ export default function Pricing() {
               A clear menu of what can be built, managed and expanded over time.
             </p>
           </div>
-          <div className="pr-band-mark">Precision Martech LLC</div>
+          <div className="pr-band-mark">Precision Martech</div>
         </div>
       </div>
 
@@ -414,7 +414,7 @@ export default function Pricing() {
         </div>
 
         <div className="pr-fineprint">
-          Precision Martech LLC · Business Automation & Email Marketing Services
+          Precision Martech · Business Automation & Email Marketing Services
         </div>
       </div>
     </div>

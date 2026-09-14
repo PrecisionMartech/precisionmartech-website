@@ -29,7 +29,7 @@ export default function Nav() {
     <nav className={`nav${scrolled || alwaysSolid ? ' scrolled' : ''}`}>
       <div className="nav-inner">
         <Link to="/" className="nav-wordmark" style={{ textDecoration: 'none' }}>
-          Precision Martech LLC
+          Precision Martech
         </Link>
         <ul className="nav-links">
           <li><a href="/#services" onClick={e => { e.preventDefault(); goToSection('services'); }}>Services</a></li>
