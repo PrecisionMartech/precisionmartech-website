@@ -96,7 +96,7 @@ function Services() {
     <section id="services" className="services">
       <div className="services-inner">
         <div className="sec-eyebrow reveal">What we do</div>
-        <h2 className="sec-title reveal" data-delay="1">Four disciplines.<br/>One precise team.</h2>
+        <h2 className="sec-title reveal" data-delay="1">Multiple disciplines.<br/>One precise team.</h2>
         {SERVICES.map(s => (
           <div className="service-item" key={s.num}>
             <div className="si-meta reveal">

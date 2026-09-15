@@ -168,7 +168,7 @@ export default function Pricing() {
         <section className="pr-section">
           <div className="pr-eyebrow reveal">What we build</div>
           <h1 className="pr-title reveal" data-delay="1">
-            Four services. One place to start.
+            Multiple services. One place to start.
           </h1>
           <p className="pr-lede reveal" data-delay="2">
             Every project starts with a short discovery call so the scope is real before
