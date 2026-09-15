@@ -44,6 +44,17 @@ const STEPS: Step[] = [
 const TECH = ['React', 'TypeScript', 'Next.js', 'React Native', 'Tailwind CSS', 'Node.js',
   'Vite', 'Vercel', 'Supabase', 'Stripe', 'GoHighLevel', 'n8n', 'OpenAI API', 'Shopify'];
 
+type Saug = { who: string; title: string; body: string };
+const SAUG: Saug[] = [
+  { who: 'For agencies', title: 'White-label capacity',
+    body: 'Add senior web, app, or automation talent to your team under your brand — take on more work without hiring.' },
+  { who: 'For growing businesses', title: 'Extra hands, on demand',
+    body: 'Scale your build up or down without the cost or long-term commitment of a full-time hire.' },
+  { who: 'For in-house teams', title: 'A missing skill',
+    body: "Drop in a specialist — mobile, AI, integrations — for the part your own team doesn't cover." },
+];
+const SAUG_ROLES = ['Front-end', 'Back-end', 'Full-stack', 'Mobile', 'AI & automation', 'UI / UX'];
+
 const scrollToCaps = (e: React.MouseEvent) => {
   e.preventDefault();
   document.getElementById('capabilities')?.scrollIntoView({ behavior: 'smooth' });
@@ -123,6 +134,37 @@ export default function Work() {
                 <ul>{c.tags.map(t => <li key={t}>{t}</li>)}</ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── STAFF AUGMENTATION ── */}
+      <section className="wk-block wk-saug">
+        <div className="wk-wrap">
+          <div className="wk-head">
+            <div className="wk-eyebrow reveal">Staff augmentation</div>
+            <h2 className="wk-title reveal" data-delay="1">Need a developer, not a project?</h2>
+            <p className="wk-lede reveal" data-delay="2">
+              Sometimes you don't need a finished product built for you — you need skilled hands
+              inside your own team. We embed developers with your team to work in your tools, on your
+              priorities. Engage by the week or month, and scale up or down anytime.
+            </p>
+          </div>
+          <div className="wk-saug-grid">
+            {SAUG.map(s => (
+              <div className="wk-saug-card reveal" key={s.title}>
+                <div className="wk-who">{s.who}</div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="wk-saug-foot reveal">
+            <div className="wk-saug-roles">
+              <span className="wk-lead">Roles we embed</span>
+              {SAUG_ROLES.map(r => <span className="wk-rl" key={r}>{r}</span>)}
+            </div>
+            <Link to="/#contact" className="btn-line">Ask about your team</Link>
           </div>
         </div>
       </section>
