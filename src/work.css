@@ -205,21 +205,41 @@
 @media (max-width: 1024px) {
   .work-page .wk-hero .wk-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
   .work-page .wk-panel { max-width: 520px; }
+  .work-page .wk-caps { grid-template-columns: repeat(2, 1fr); }
+  .work-page .wk-diffs { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 820px) {
+  .work-page .wk-saug-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .work-page .wk-caps { grid-template-columns: 1fr; }
+  .work-page .wk-steps { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  /* Mobile: Apply circuit board background to entire page, matching desktop */
-  .work-page {
-    background-image:
-      linear-gradient(
-        180deg,
-        rgba(2, 6, 14, 0.45) 0%,
-        rgba(2, 6, 14, 0.70) 70%,
-        rgba(2, 6, 14, 0.97) 100%
-      ),
-      url("/images/precision-circuit-board.webp");
-    background-size: auto, cover;
-    background-position: center, center center;
-    background-attachment: scroll, fixed;
+  /* Mobile: Apply circuit board background to hero, matching home page */
+  .work-page .wk-hero {
+    position: relative;
+    background-image: url("/images/precision-circuit-board.webp");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
   }
+  .work-page .wk-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(2, 6, 14, 0.45) 0%,
+      rgba(2, 6, 14, 0.70) 70%,
+      rgba(2, 6, 14, 0.97) 100%
+    );
+    pointer-events: none;
+  }
+  .work-page .wk-hero > * { position: relative; z-index: 1; }
+}
+@media (max-width: 460px) {
+  .work-page .wk-diffs { grid-template-columns: 1fr; }
+  .work-page .wk-steps { grid-template-columns: 1fr; }
   .work-page .wk-cta-inner { flex-direction: column; align-items: flex-start; }
 }
