@@ -347,9 +347,10 @@ body::before {
     border-bottom: 1px solid var(--border) !important;
   }
 
-  /* Remove desktop fixed bg */
+  /* Remove desktop fixed bg — body is plain dark on mobile; sections apply their own backgrounds */
   body {
-    background-attachment: scroll;
+    background-image: none;
+    background-color: #04080f;
   }
   body::before { display: none; }
 
