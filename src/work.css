@@ -239,6 +239,9 @@
   .work-page .wk-hero > * { position: relative; z-index: 1; }
 }
 @media (max-width: 768px) {
+  /* Contain collapsing bottom margin from .wk-cta-inner so it doesn't escape the page wrapper */
+  .work-page { overflow: hidden; }
+
   /* Sections below hero: apply same SVG tile pattern used on home page #services/#contact */
   .work-page .wk-block,
   .work-page .wk-cta {
